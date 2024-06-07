@@ -1,5 +1,6 @@
 import json
-from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
+from django.shortcuts import redirect, render, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.models import User 
 from django.urls import reverse
@@ -30,12 +31,12 @@ class IndexView(TemplateView):
         if form.is_valid():
             form.save()
             context = self.get_context_data()
-            context['message'] = "Message successfully submitted."
-            return self.render_to_response(context)
+            messages.success(request, "Message successfully submitted.")
+            return redirect('/')
         else:
+            messages.error(request, "Form validation error.")
             context = self.get_context_data()
             context['form'] = form
-            context['error'] = "Form validation error."
             return self.render_to_response(context)
 
 

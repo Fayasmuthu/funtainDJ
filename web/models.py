@@ -17,6 +17,13 @@ class Categories(models.Model):
     timestamp = models.DateTimeField()
     is_active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return str(self.title)
+
+    class Meta:
+        verbose_name = ('Categories')
+        verbose_name_plural = ('Categories')
+
 
 class Blog(models.Model):
     # auto_id = models.PositiveIntegerField(db_index=True,unique=True)
@@ -26,6 +33,9 @@ class Blog(models.Model):
     content = models.TextField()
     timestamp = models.DateTimeField()
     is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return str(self.title)
 
 
 class Contact(models.Model):
@@ -40,3 +50,4 @@ class Contact(models.Model):
 
     def __str__(self):
         return str(self.name)
+    

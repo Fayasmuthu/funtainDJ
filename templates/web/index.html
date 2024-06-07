@@ -283,17 +283,14 @@
             <div class="col-lg-6">
                 <div class="form-content">
                     <div class="container">
-                        {% if message %}
-                        <div class="alert alert-success">
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
                             {{ message }}
                         </div>
+                        {% endfor %}
                         {% endif %}
 
-                        {% if error %}
-                        <div class="alert alert-danger">
-                            {{ error }}
-                        </div>
-                        {% endif %}
                         <form id="contact" action="" method="post">
                             {% csrf_token %}
                             <h4 class="text-center mb-5">Registration to get notified about new competition and
@@ -318,10 +315,16 @@
                                 {% endfor %}
                             </div>
 
-                            <select class="form-select form-select-lg w-100 mb-5" name="course" aria-label=".form-select-lg example">
+                            <select class="form-select form-select-lg w-100 mb-5" name="course"
+                                aria-label=".form-select-lg example">
                                 <option value="">Open this select menu</option>
+                                {% comment %} {% for value, label in form.course.field.choices %}
+                                <option value="{{ value }}" {% if form.course.value==value %}selected{% endif %}>{{
+                                    label }}</option>
+                                {% endfor %} {% endcomment %}
+
                                 {% for value, label in form.course.field.choices %}
-                                    <option value="{{ value }}" {% if form.course.value == value %}selected{% endif %}>{{ label }}</option>
+                                <option value="{{ value }}" {% if form.course.value|stringformat:"s" == value|stringformat:"s" %}selected{% endif %}>{{ label }}</option>
                                 {% endfor %}
                             </select>
 
