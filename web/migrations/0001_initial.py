@@ -7,45 +7,78 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Blog',
+            name="Blog",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('auto_id', models.PositiveIntegerField(db_index=True, unique=True)),
-                ('title', models.CharField(max_length=128)),
-                ('slug', models.SlugField(blank=True, null=True, unique=True)),
-                ('image', models.ImageField(upload_to='images/blog/image/')),
-                ('content', models.TextField()),
-                ('timestamp', models.DateTimeField()),
-                ('is_active', models.BooleanField(default=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("auto_id", models.PositiveIntegerField(db_index=True, unique=True)),
+                ("title", models.CharField(max_length=128)),
+                ("slug", models.SlugField(blank=True, null=True, unique=True)),
+                ("image", models.ImageField(upload_to="images/blog/image/")),
+                ("content", models.TextField()),
+                ("timestamp", models.DateTimeField()),
+                ("is_active", models.BooleanField(default=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Categories',
+            name="Categories",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('auto_id', models.PositiveIntegerField(db_index=True, unique=True)),
-                ('title', models.CharField(max_length=128)),
-                ('slug', models.SlugField(blank=True, null=True, unique=True)),
-                ('image', models.ImageField(upload_to='images/categories/image/')),
-                ('content', models.TextField()),
-                ('timestamp', models.DateTimeField()),
-                ('is_active', models.BooleanField(default=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("auto_id", models.PositiveIntegerField(db_index=True, unique=True)),
+                ("title", models.CharField(max_length=128)),
+                ("slug", models.SlugField(blank=True, null=True, unique=True)),
+                ("image", models.ImageField(upload_to="images/categories/image/")),
+                ("content", models.TextField()),
+                ("timestamp", models.DateTimeField()),
+                ("is_active", models.BooleanField(default=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Contact',
+            name="Contact",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=120)),
-                ('email', models.EmailField(blank=True, max_length=254, null=True)),
-                ('phone', models.CharField(blank=True, max_length=120, null=True)),
-                ('course', models.CharField(choices=[('software-developer', 'Software Developer'), ('accounting', 'Accounting')], default='software-developer', max_length=128)),
-                ('timestamp', models.DateTimeField(auto_now_add=True, db_index=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=120)),
+                ("email", models.EmailField(blank=True, max_length=254, null=True)),
+                ("phone", models.CharField(blank=True, max_length=120, null=True)),
+                (
+                    "course",
+                    models.CharField(
+                        choices=[
+                            ("software-developer", "Software Developer"),
+                            ("accounting", "Accounting"),
+                        ],
+                        default="software-developer",
+                        max_length=128,
+                    ),
+                ),
+                ("timestamp", models.DateTimeField(auto_now_add=True, db_index=True)),
             ],
         ),
     ]

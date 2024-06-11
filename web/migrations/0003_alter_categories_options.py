@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('web', '0002_remove_blog_auto_id_remove_categories_auto_id'),
+        ("web", "0002_remove_blog_auto_id_remove_categories_auto_id"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='categories',
-            options={'verbose_name': 'Categories', 'verbose_name_plural': 'Categories'},
+            name="categories",
+            options={"verbose_name": "Categories", "verbose_name_plural": "Categories"},
         ),
     ]

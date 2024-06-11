@@ -1,13 +1,16 @@
 from __future__ import unicode_literals
+
 from django.contrib import admin
-from .models import Blog,Categories,Contact
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import Group, User
+
+from .models import Blog, Categories, Contact
 
 # To remove user,groups from admin panel
 admin.site.unregister(User)
 admin.site.unregister(Group)
 
 admin.site.register(Categories)
+
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
@@ -25,6 +28,5 @@ class BlogAdmin(admin.ModelAdmin):
         "content__name",
     )
 
+
 admin.site.register(Contact)
-
-

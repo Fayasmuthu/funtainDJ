@@ -1,6 +1,4 @@
-import random
 import re
-import string
 
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
@@ -41,7 +39,9 @@ def generate_value(self, field):
         media_url = "/media/"
         field_value = field.value_from_object(self)
         if field_value:
-            return format_html('<a href="{}{}" target="_blank">Open Image</a>', media_url, field_value)
+            return format_html(
+                '<a href="{}{}" target="_blank">Open Image</a>', media_url, field_value
+            )
         else:
             return "-"
 
@@ -49,7 +49,9 @@ def generate_value(self, field):
         media_url = "/media/"
         field_value = field.value_from_object(self)
         if field_value:
-            return format_html('<a href="{}{}" target="_blank">Open File</a>', media_url, field_value)
+            return format_html(
+                '<a href="{}{}" target="_blank">Open File</a>', media_url, field_value
+            )
         else:
             return "-"
 
@@ -74,6 +76,7 @@ def generate_value(self, field):
 
 
 def generate_fields(self):
-    return [(field.verbose_name.title(), generate_value(self, field)) for field in self._meta.fields]
-
-
+    return [
+        (field.verbose_name.title(), generate_value(self, field))
+        for field in self._meta.fields
+    ]
