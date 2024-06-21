@@ -829,7 +829,7 @@ a, a:hover {
   border-radius: 50%;
   color: #000;
   width: 50px;
-  padding: 5px;
+  padding: 15px;
 }
 
 @media screen and (max-width:567px) {
@@ -1211,6 +1211,19 @@ background: linear-gradient(159deg, rgba(255,217,173,1) 0%, rgba(255,233,212,0.8
 .about-content-one .about-title h2 {
   font-size: 25px;
   font-weight: 900;
+}
+
+
+#contact {
+  background: #F9F9F9;
+  padding: 16px !important;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+}
+
+
+#contact .mb-5 {
+ margin-bottom: 14px !important;
 }
 }
 
